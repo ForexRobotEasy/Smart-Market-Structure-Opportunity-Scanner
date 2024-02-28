@@ -1,0 +1,67 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                               Smart Market Structure Opportunity Scanner |
+//|                                                     forexroboteasy.com |
+//|                                                Forex Robot Easy Team |
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+void OnStart()
+{
+    // Step 1: Customizable Forex Pair Lists
+    string[] forexPairList = {'EURUSD', 'GBPUSD', 'USDJPY', 'AUDUSD', 'USDCHF', 'USDCAD', 'NZDUSD'};
+    // Add more Forex pairs to the list if needed
+
+    // Step 2: Comprehensive Market Analysis
+    int totalPairs = ArraySize(forexPairList);
+    for (int i = 0; i < totalPairs; i++)
+    {
+        string pair = forexPairList[i];
+        double highestValueDay = MarketInfo(pair, MODE_HIGH);
+        double lowestValueDay = MarketInfo(pair, MODE_LOW);
+        double highestValueMonth = MarketInfo(pair, MODE_MONTHLY_HIGH);
+        double lowestValueMonth = MarketInfo(pair, MODE_MONTHLY_LOW);
+        // Add code to retrieve values for preceding day, week, and up to 24 months
+
+        // Step 4: Real-time Market Data
+        double bid = MarketInfo(pair, MODE_BID);
+        double ask = MarketInfo(pair, MODE_ASK);
+        // Add code to continuously update and display real-time market data
+
+        // Step 5: Trading Entry and Exit Signals
+        double entrySignal = CalculateEntrySignal(pair);
+        double exitSignal = CalculateExitSignal(pair);
+        // Add code to generate entry and exit signals based on market data
+
+        // Step 6: User Interface
+        Print('Pair: ', pair);
+        Print('Highest Value (Day): ', highestValueDay);
+        Print('Lowest Value (Day): ', lowestValueDay);
+        Print('Highest Value (Month): ', highestValueMonth);
+        Print('Lowest Value (Month): ', lowestValueMonth);
+        Print('Bid: ', bid);
+        Print('Ask: ', ask);
+        Print('Entry Signal: ', entrySignal);
+        Print('Exit Signal: ', exitSignal);
+    }
+}
+
+//+------------------------------------------------------------------+
+//| Calculate trading entry signal based on market data                |
+//+------------------------------------------------------------------+
+double CalculateEntrySignal(string pair)
+{
+    // Add code to analyze market data and generate entry signal
+    return 1.0; // Placeholder return value
+}
+
+//+------------------------------------------------------------------+
+//| Calculate trading exit signal based on market data                 |
+//+------------------------------------------------------------------+
+double CalculateExitSignal(string pair)
+{
+    // Add code to analyze market data and generate exit signal
+    return 0.0; // Placeholder return value
+}
